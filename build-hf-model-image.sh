@@ -38,8 +38,7 @@ echo "Full Image Name:      ${FULL_IMAGE_NAME}"
 echo "---------------------"
 echo
 read -p "Do you want to continue with this configuration? (y/N) " confirm
-# Convert input to lowercase for case-insensitive comparison
-if [[ "${confirm,,}" != "y" ]]; then
+if [[ "${confirm}" != "y" || "${confirm}" != "Y" ]]; then
     echo "Aborted by user."
     exit 0
 fi
