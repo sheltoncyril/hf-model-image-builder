@@ -38,7 +38,7 @@ echo "Full Image Name:      ${FULL_IMAGE_NAME}"
 echo "---------------------"
 echo
 read -p "Do you want to continue with this configuration? (y/N) " confirm
-if [[ "${confirm}" != "y" || "${confirm}" != "Y" ]]; then
+if [ $confirm != "y" || $confirm != "Y" ]; then
     echo "Aborted by user."
     exit 0
 fi
@@ -115,7 +115,7 @@ echo
 # --- Push Confirmation ---
 echo "Image built and verified successfully."
 read -p "Push to registry? Registry: ${FULL_IMAGE_NAME}. Confirmation: (y/N) " push_confirm
-if [[ "${push_confirm,,}" != "y" ]]; then
+if [ $push_confirm != "y" || $push_confirm != "Y" ]; then
     echo "Push aborted by user."
     echo "The local image '${FULL_IMAGE_NAME}' is available for inspection."
     rm Dockerfile # Cleanup
